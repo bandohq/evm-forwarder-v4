@@ -17,3 +17,6 @@ output.json
 artifacts
 cache
 typechain
+
+# forge
+cache_forge
