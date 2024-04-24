@@ -1,10 +1,10 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
+import '@nomicfoundation/hardhat-foundry';
 import '@nomiclabs/hardhat-etherscan';
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomiclabs/hardhat-etherscan';
 import '@nomiclabs/hardhat-waffle';
-import '@nomiclabs/hardhat-truffle5';
 import '@typechain/hardhat';
 import 'hardhat-gas-reporter';
 import 'solidity-coverage';
@@ -63,7 +63,7 @@ const config: HardhatUserConfig = {
         balance: '200000000000000000000000000'
       })),
       loggingEnabled: false
-    },
+    }/*,
     eth: {
       url: `https://ultra-empty-sanctuary.quiknode.pro/${QUICKNODE_ETH_MAINNET_API_KEY}`,
       accounts: [`${MAINNET_PRIVATE_KEY_FOR_CONTRACT_DEPLOYMENT}`]
@@ -108,13 +108,13 @@ const config: HardhatUserConfig = {
     tzketh: {
       url: `${QUICKNODE_ZKSYNC_SEPOLIA_API_KEY}`,
       accounts: [`${PRIVATE_KEY_FOR_V4_CONTRACT_DEPLOYMENT}`]
-    }
+    }*/
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: 'USD'
   },
-  etherscan: {
+  /*etherscan: {
     apiKey: {
       //ethereum
       mainnet: `${ETHERSCAN_API_KEY}`,
@@ -185,7 +185,7 @@ const config: HardhatUserConfig = {
         }
       }
     ]
-  },
+  },*/
   mocha: {
     timeout: 100000
   }

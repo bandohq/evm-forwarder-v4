@@ -160,7 +160,9 @@ contract RecoveryWalletSimple is IERC721Receiver, ERC1155Holder {
    * @param _tokenId The token id of the nft
    * @param _data Additional data with no specified format, sent in call to `_to`
    */
+  //solhint-disable-next-line no-unused-vars
   function onERC721Received(
+    //solhint-disable-next-line no-unused-vars
     address _operator,
     address _from,
     uint256 _tokenId,
@@ -172,7 +174,9 @@ contract RecoveryWalletSimple is IERC721Receiver, ERC1155Holder {
   /**
    * @inheritdoc ERC1155Holder
    */
+  //solhint-disable no-unused-vars
   function onERC1155Received(
+    //solhint-disable no-unused-vars
     address _operator,
     address _from,
     uint256 id,
