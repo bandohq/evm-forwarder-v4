@@ -7,14 +7,10 @@ const ethers = require('ethers');
 
 const Forwarder = artifacts.require('./Forwarder.sol');
 const ForwarderFactory = artifacts.require('./ForwarderFactory.sol');
-const WalletFactory = artifacts.require('./WalletFactory.sol');
-const WalletSimple = artifacts.require('./WalletSimple.sol');
 
 const abis = [
   Forwarder.abi,
   ForwarderFactory.abi,
-  WalletSimple.abi,
-  WalletFactory.abi
 ];
 
 exports.showBalances = async function () {
