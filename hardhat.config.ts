@@ -3,6 +3,7 @@ dotenv.config();
 import '@nomicfoundation/hardhat-foundry';
 import '@nomiclabs/hardhat-etherscan';
 import { HardhatUserConfig } from 'hardhat/config';
+import '@nomiclabs/hardhat-truffle5';
 import '@nomiclabs/hardhat-etherscan';
 import '@nomiclabs/hardhat-waffle';
 import '@typechain/hardhat';
