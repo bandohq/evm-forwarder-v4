@@ -5,7 +5,7 @@ import { DeployScriptBase } from "./utils/DeployScriptBase.sol";
 import { stdJson } from "forge-std/Script.sol";
 import { ForwarderV4 } from "bando/ForwarderV4.sol";
 
-contract DeployScript is DeployScriptBase {
+contract DeployForwarderV4 is DeployScriptBase {
     using stdJson for string;
 
     constructor() DeployScriptBase("ForwarderV4") {}

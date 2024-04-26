@@ -12,9 +12,6 @@ contract DeployScriptBase is ScriptBase {
     constructor(string memory contractName) {
         address factoryAddress = vm.envAddress("CREATE3_FACTORY_ADDRESS");
         string memory saltPrefix = vm.envString("DEPLOYSALT");
-        bool deployToDefaultDiamondAddress = vm.envBool(
-            "DEPLOY_TO_DEFAULT_DIAMOND_ADDRESS"
-        );
         factory = CREATE3Factory(factoryAddress);
         predicted = factory.getDeployed(deployerAddress, salt);
     }
