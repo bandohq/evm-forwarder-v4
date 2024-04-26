@@ -154,9 +154,9 @@ contract ForwarderV4 is IERC721Receiver, ERC1155Holder, IForwarderV4 {
 
   /**
    * @notice Method to set allowance for a spender on a token contract
-   * @param tokenContractAddress 
-   * @param spender 
-   * @param amount 
+   * @param tokenContractAddress token contract address
+   * @param spender spender address
+   * @param amount amount to approve
    */
   function setAllowance(address tokenContractAddress, address spender, uint256 amount)
     external
