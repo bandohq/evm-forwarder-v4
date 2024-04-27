@@ -21,3 +21,4 @@ typechain
 # forge
 cache_forge
 out
+config.sh
