@@ -32,7 +32,6 @@ scriptMaster() {
 
   # load deploy script & helper functions
   source script/deploy/deploySingleContract.sh
-  source script/deploy/deployAllContracts.sh
   source script/helperFunctions.sh
   source script/config.sh
   # still not activated ---v
@@ -94,14 +93,9 @@ scriptMaster() {
     gum choose \
       "1) Deploy one specific contract to one network" \
       "2) Deploy one specific contract to all (not-excluded) networks (=new contract)" \
-      "3) Deploy all contracts to one selected network (=new network)" \
-      "4) Deploy all (missing) contracts for all networks (actual vs. target) - NOT YET ACTIVATED" \
-      "5) Execute a script" \
-      "6) Batch update _targetState.json file" \
-      "7) Verify all unverified contracts" \
-      "8) Review deploy status (vs. target state)" \
-      "9) Create updated target state from Google Docs (STAGING or PRODUCTION)" \
-      "10) Propose upgrade TX to Gnosis SAFE"
+      "3) Execute a script" \
+      "4) Verify all unverified contracts" \
+      "5) Propose upgrade TX to Gnosis SAFE"
   )
 
   #---------------------------------------------------------------------------------------------------------------------
@@ -172,32 +166,8 @@ scriptMaster() {
     playNotificationSound
 
   #---------------------------------------------------------------------------------------------------------------------
-  # use case 3: Deploy all contracts to one selected network (=new network)
+  # use case 3: Execute a script
   elif [[ "$SELECTION" == "3)"* ]]; then
-    echo ""
-    echo "[info] selected use case: Deploy all contracts to one selected network (=new network)"
-
-    # get user-selected network from list
-    local NETWORK=$(cat ./networks | gum filter --placeholder "Network")
-    # get deployer wallet balance
-    BALANCE=$(getDeployerBalance "$NETWORK" "$ENVIRONMENT")
-
-    echo "[info] selected network: $NETWORK"
-    echo "[info] deployer wallet balance in this network: $BALANCE"
-    echo ""
-    checkRequiredVariablesInDotEnv "$NETWORK"
-
-    # call deploy script
-    deployAllContracts "$NETWORK" "$ENVIRONMENT"
-
-    # check if last command was executed successfully, otherwise exit script with error message
-    checkFailure $? "deploy all contracts to network $NETWORK"
-
-    playNotificationSound
-
-  #---------------------------------------------------------------------------------------------------------------------
-  # use case 4: Execute a script
-  elif [[ "$SELECTION" == "4)"* ]]; then
     echo ""
     SCRIPT=$(ls -1p "$TASKS_SCRIPT_DIRECTORY" | grep -v "/$" | sed -e 's/\.sh$//' | gum filter --placeholder "Please select the script you would like to execute: ")
     if [[ -z "$SCRIPT" ]]; then
@@ -211,8 +181,8 @@ scriptMaster() {
     eval "$SCRIPT" '""' "$ENVIRONMENT"
 
   #---------------------------------------------------------------------------------------------------------------------
-  # use case 5: Verify all unverified contracts
-  elif [[ "$SELECTION" == "5)"* ]]; then
+  # use case 4: Verify all unverified contracts
+  elif [[ "$SELECTION" == "4)"* ]]; then
     verifyAllUnverifiedContractsInLogFile
     playNotificationSound
 
