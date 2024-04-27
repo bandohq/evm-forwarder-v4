@@ -25,20 +25,11 @@ DEPLOY_SCRIPT_DIRECTORY="script/deploy/facets/"
 # the directory of all task script
 TASKS_SCRIPT_DIRECTORY="script/tasks/"
 
-# the directory of all (facet) config script
-CONFIG_SCRIPT_DIRECTORY="script/tasks/solidity/"
-
-# the path of the JSON file that contains the target state
-TARGET_STATE_PATH="script/deploy/_targetState.json"
-
 # the path of the JSON file that contains the deployment log file
 LOG_FILE_PATH="deployments/_deployments_log_file.json"
 
 # the path of the JSON file that contains the bytecode storage file
 BYTECODE_STORAGE_PATH="deployments/_bytecode_storage.json"
-
-# the path of the JSON file that contains the bytecode storage file
-CONTRACT_REMINDERS="script/deploy/resources/contractSpecificReminders.sh"
 
 # the path of the JSON file that contains deploy requirements per contract
 DEPLOY_REQUIREMENTS_PATH="script/deploy/resources/deployRequirements.json"
@@ -67,12 +58,6 @@ DO_NOT_VERIFY_IN_THESE_NETWORKS="gnosis,testNetwork,aurora,localanvil"
 # the path to the file that contains a list of all networks
 NETWORKS_FILE_PATH="./networks"
 
-# script will use all periphery contracts by default, unless excluded here (must match exact filename without .sol, comma-separated without space)
-EXCLUDE_PERIPHERY_CONTRACTS=""
-
-# scripts will use all facet contracts by default, unless excluded here (must match exact filename without .sol, comma-separated without space)
-EXCLUDE_FACET_CONTRACTS=""
-
 # enable/disable notification sounds for long-running scripts
 NOTIFICATION_SOUNDS=true
 
@@ -81,10 +66,6 @@ DEFAULT_FORWARDER_ADDRESS_DEPLOYSALT=0xc726deb4bf42c6ef5d0b4e3080ace43aed9b27093
 
 # Defines the maximum gas price for mainnet transactions (otherwise the script will wait until gas price is down)
 MAINNET_MAXIMUM_GAS_PRICE=50000000000 # = 50 Gwei
-
-# contains the ID of the production target state Google spreadsheet
-TARGET_STATE_SPREADSHEET_ID_PRODUCTION=""
-TARGET_STATE_SPREADSHEET_ID_STAGING=""
 
 # used to start a local (Foundry) anvil network with the same private keys for testing purposes
 MNEMONIC="test test test test test test test test test test test junk"
