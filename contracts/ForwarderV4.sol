@@ -153,6 +153,20 @@ contract ForwarderV4 is IERC721Receiver, ERC1155Holder, IForwarderV4 {
   }
 
   /**
+   * @notice Method to set allowance for a spender on a token contract
+   * @param tokenContractAddress token contract address
+   * @param spender spender address
+   * @param amount amount to approve
+   */
+  function setAllowance(address tokenContractAddress, address spender, uint256 amount)
+    external
+    onlyAllowedAddress
+  {
+    ERC20Interface instance = ERC20Interface(tokenContractAddress);
+    require(instance.approve(spender, amount), 'Approve failed');
+  }
+
+  /**
    * @notice Method to allow for calls to other contracts. This method can only be called by the parent address
    * @param target The target contract address whose method needs to be called
    * @param value The amount of Ether to be sent

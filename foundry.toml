@@ -76,4 +76,4 @@ scroll = { key = "${SCROLL_ETHERSCAN_API_KEY}", url = "https://api.scrollscan.co
 #testnets
 goerli = { key = "${MAINNET_ETHERSCAN_API_KEY}" }
 bsc-testnet = { key = "${BSC_ETHERSCAN_API_KEY}", url = "https://api-testnet.bscscan.com/" }
-mumbai = { key = "${MUMBAI_ETHERSCAN_API_KEY}", url = "https://api-testnet.polygonscan.com/api" }
+mumbai = { key = "${POLYGON_ETHERSCAN_API_KEY}", url = "https://api-testnet.polygonscan.com/api" }

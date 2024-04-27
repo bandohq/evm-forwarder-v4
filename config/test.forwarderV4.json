@@ -1,0 +1,6 @@
+{
+    "parentAddress": "",
+    "feeAddress": "",
+    "autoFlush721": true,
+    "autoFlush1155": false
+}

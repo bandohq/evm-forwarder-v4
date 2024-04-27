@@ -18,4 +18,10 @@ abstract contract ERC20Interface {
     view
     virtual
     returns (uint256 balance);
+
+  // Approve the passed address to spend the specified amount of tokens
+  function approve(address _spender, uint256 _value)
+    public
+    virtual
+    returns (bool success);
 }
