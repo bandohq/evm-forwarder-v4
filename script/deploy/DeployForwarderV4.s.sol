@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 import { DeployScriptBase } from "./utils/DeployScriptBase.sol";
 import { stdJson } from "forge-std/Script.sol";
-import { ForwarderV4 } from "bando/ForwarderV4.sol";
+import { ForwarderV4 } from "../../contracts/ForwarderV4.sol";
 
 contract DeployForwarderV4 is DeployScriptBase {
     using stdJson for string;

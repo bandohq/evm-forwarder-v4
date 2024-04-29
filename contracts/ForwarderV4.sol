@@ -11,6 +11,7 @@ import './IForwarderV4.sol';
 /**
  * @title ForwarderV4
  * @notice This contract will forward any incoming Ether or token to the parent address of the contract
+ * @custom:version 4.0.0
  */
 contract ForwarderV4 is IERC721Receiver, ERC1155Holder, IForwarderV4 {
   /// @notice Any funds sent to this contract will be forwarded to this address

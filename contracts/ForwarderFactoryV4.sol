@@ -2,12 +2,14 @@
 pragma solidity 0.8.20;
 import './ForwarderV4.sol';
 import './CloneFactory.sol';
+import '@openzeppelin/contracts/access/Ownable.sol';
 
 /**
  * @title ForwarderFactoryV4
  * @notice This contract will deploy new forwarder contracts using the create2 opcode
+ * @custom:version 4.0.0
  */
-contract ForwarderFactoryV4 is CloneFactory {
+contract ForwarderFactoryV4 is CloneFactory, Ownable {
   address public immutable implementationAddress;
 
   /**
@@ -30,7 +32,7 @@ contract ForwarderFactoryV4 is CloneFactory {
    * @notice Initializes the factory with the address of the current forwarder implementation
    * @param _implementationAddress Address of the current forwarder implementation
    */
-  constructor(address _implementationAddress) {
+  constructor(address _implementationAddress) Ownable(msg.sender) {
     implementationAddress = _implementationAddress;
   }
 
@@ -44,7 +46,7 @@ contract ForwarderFactoryV4 is CloneFactory {
     address parent,
     address feeAddress,
     bytes32 salt
-  ) external {
+  ) onlyOwner external {
     this.createForwarder(parent, feeAddress, salt, true, true);
   }
 

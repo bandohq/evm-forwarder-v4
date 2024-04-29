@@ -118,21 +118,10 @@ deploySingleContract() {
   local DEPLOYSALT=$(cast keccak "$SALT_INPUT")
 
   CONTRACT_ADDRESS=$(getContractAddressFromSalt "$DEPLOYSALT" "$NETWORK" "$CONTRACT" "$ENVIRONMENT")
+  echo "[info] contract address for $CONTRACT in $NETWORK: $CONTRACT_ADDRESS"
 
   # check if address already contains code (=> are we deploying or re-running the script again?)
   NEW_DEPLOYMENT=$(doesAddressContainBytecode "$NETWORK" "$ADDRESS")
-
-  # check if all required data (e.g. config data / contract addresses) is available
-  checkDeployRequirements "$NETWORK" "$ENVIRONMENT" "$CONTRACT"
-
-  # do not continue if data required for deployment is missing
-  if [ $? -ne 0 ]; then
-    if [[ -z "$EXIT_ON_ERROR" || $EXIT_ON_ERROR == "false" ]]; then
-      return 1
-    else
-      exit 1
-    fi
-  fi
 
   # execute script
   attempts=1
@@ -144,9 +133,8 @@ deploySingleContract() {
     doNotContinueUnlessGasIsBelowThreshold "$NETWORK"
 
     # try to execute call
-    RAW_RETURN_DATA=$(DEPLOYSALT=$DEPLOYSALT NETWORK=$NETWORK FILE_SUFFIX=$FILE_SUFFIX DEFAULT_FORWARDER_ADDRESS_DEPLOYSALT=$DEFAULT_FORWARDER_ADDRESS_DEPLOYSALT PRIVATE_KEY=$(getPrivateKey "$NETWORK" "$ENVIRONMENT") forge script "$FULL_SCRIPT_PATH" -f $NETWORK -vvvv --json --silent --broadcast --skip-simulation --legacy)
+    RAW_RETURN_DATA=$(DEPLOYSALT=$DEPLOYSALT NETWORK=$NETWORK FILE_SUFFIX=$FILE_SUFFIX PRIVATE_KEY=$(getPrivateKey "$NETWORK" "$ENVIRONMENT") forge script "$FULL_SCRIPT_PATH" -f $NETWORK -vvvv --json --silent --broadcast --skip-simulation --legacy)
     RETURN_CODE=$?
-
     # print return data only if debug mode is activated
     echoDebug "RAW_RETURN_DATA: $RAW_RETURN_DATA"
 
