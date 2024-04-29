@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+
 # deploys a single contract
 # should be called like this:
 # $(deploySingleContract "Executor" "BSC" "staging" "1.0.0" true)
