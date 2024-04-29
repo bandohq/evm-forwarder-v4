@@ -12,6 +12,7 @@ contract DeployScriptBase is ScriptBase {
     constructor(string memory contractName) {
         address factoryAddress = vm.envAddress("CREATE3_FACTORY_ADDRESS");
         string memory saltPrefix = vm.envString("DEPLOYSALT");
+        salt = keccak256(abi.encodePacked(saltPrefix, contractName));
         factory = CREATE3Factory(factoryAddress);
         predicted = factory.getDeployed(deployerAddress, salt);
     }

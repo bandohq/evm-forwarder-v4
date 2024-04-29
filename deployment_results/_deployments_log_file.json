@@ -1,0 +1,18 @@
+{
+  "ForwarderV4": {
+    "sepolia": {
+      "staging": {
+        "@custom:version": [
+          {
+            "ADDRESS": "0x471eE4af9692273b1023f9C86820176b9e682D45",
+            "OPTIMIZER_RUNS": "\u001b[31m[error] : optimizer_runs string not found in foundry.toml.\u001b[0m",
+            "TIMESTAMP": "2024-04-29 00:46:08",
+            "CONSTRUCTOR_ARGS": "0x",
+            "SALT": "31415678",
+            "VERIFIED": "false"
+          }
+        ]
+      }
+    }
+  }
+}

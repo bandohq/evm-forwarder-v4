@@ -1,0 +1,6 @@
+{
+    "parentAddress": "0x292ab98f7c032a0e77136b91bcc35739392f690a",
+    "feeAddress": "0x292ab98f7c032a0e77136b91bcc35739392f690a",
+    "autoFlush721": true,
+    "autoFlush1155": false
+}

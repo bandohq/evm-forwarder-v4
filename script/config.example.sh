@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # defines the environment (true=production, false=staging)
@@ -17,10 +18,10 @@ MAX_ATTEMPTS_PER_CONTRACT_VERIFICATION=5
 MAX_ATTEMPTS_PER_SCRIPT_EXECUTION=5
 
 # the root directory of all contract src files
-CONTRACT_DIRECTORY="src/"
+CONTRACT_DIRECTORY="contracts/"
 
 # the directory of all deploy and update script
-DEPLOY_SCRIPT_DIRECTORY="script/deploy/facets/"
+DEPLOY_SCRIPT_DIRECTORY="script/deploy/"
 
 # the directory of all task script
 TASKS_SCRIPT_DIRECTORY="script/tasks/"
@@ -60,9 +61,6 @@ NETWORKS_FILE_PATH="./networks"
 
 # enable/disable notification sounds for long-running scripts
 NOTIFICATION_SOUNDS=true
-
-# fixed salt that is used to deploy to our predefined address - DO NOT CHANGE THIS VALUE !!!
-DEFAULT_FORWARDER_ADDRESS_DEPLOYSALT=0xc726deb4bf42c6ef5d0b4e3080ace43aed9b270938861f7cacf900eba890fa66
 
 # Defines the maximum gas price for mainnet transactions (otherwise the script will wait until gas price is down)
 MAINNET_MAXIMUM_GAS_PRICE=50000000000 # = 50 Gwei

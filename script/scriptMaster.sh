@@ -185,7 +185,7 @@ scriptMaster() {
   elif [[ "$SELECTION" == "4)"* ]]; then
     verifyAllUnverifiedContractsInLogFile
     playNotificationSound
-
+  
   #---------------------------------------------------------------------------------------------------------------------
   # use case 6: Propose upgrade TX to Gnosis SAFE
   #elif [[ "$SELECTION" == "6)"* ]]; then
@@ -194,7 +194,7 @@ scriptMaster() {
   #  error "invalid use case selected ('$SELECTION') - exiting script"
   #  cleanup
   #  exit 1
-  #fi
+  fi
 
   cleanup
 
@@ -206,7 +206,7 @@ scriptMaster() {
   echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 }
 
-function cleanup() {
+cleanup() {
   # end local anvil network if flag in config is set
   if [[ "$END_LOCAL_ANVIL_NETWORK_ON_SCRIPT_COMPLETION" == "true" ]]; then
     echoDebug "ending anvil network and removing localanvil deploy logs"
