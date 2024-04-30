@@ -33,7 +33,7 @@ contract DeployForwarderFactory is DeployScriptBase {
 
         // extract implementation address
         address implementationAddress = configJson.readAddress(
-            ".forwarderAddress"
+            ".ForwarderV4"
         );
 
         return abi.encode(implementationAddress);

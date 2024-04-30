@@ -67,7 +67,7 @@ scriptMaster() {
     printf '\033[33m%s\033[0m\n' "This means you will be deploying contracts to production"
     printf '\033[31m%s\031\n' "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     echo "    "
-    printf '\033[33m%s\033[0m\n' "Last chance: Do you want to continue?"
+    printf '\033[33m%s\033[0m\n' "Last chance: Do you want to skip?"
     PROD_SELECTION=$(
       gum choose \
         "yes" \
