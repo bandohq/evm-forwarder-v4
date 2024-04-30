@@ -11,6 +11,7 @@ import '@openzeppelin/contracts/access/Ownable.sol';
  */
 contract ForwarderFactoryV4 is CloneFactory, Ownable {
   address public immutable implementationAddress;
+  address public deployer;
 
   /**
    * @notice Event triggered when a new forwarder is deployed
@@ -31,9 +32,11 @@ contract ForwarderFactoryV4 is CloneFactory, Ownable {
   /**
    * @notice Initializes the factory with the address of the current forwarder implementation
    * @param _implementationAddress Address of the current forwarder implementation
+   * @param _deployer Address of the deployer. In charge of creating new forwarders
    */
-  constructor(address _implementationAddress) Ownable(msg.sender) {
+  constructor(address _implementationAddress, address _deployer) Ownable(_deployer) {
     implementationAddress = _implementationAddress;
+    deployer = _deployer;
   }
 
   /**
@@ -46,8 +49,8 @@ contract ForwarderFactoryV4 is CloneFactory, Ownable {
     address parent,
     address feeAddress,
     bytes32 salt
-  ) onlyOwner external {
-    this.createForwarder(parent, feeAddress, salt, true, true);
+  ) external {
+    this.createForwarder(parent, feeAddress, salt, true, false);
   }
 
   /**
@@ -64,7 +67,7 @@ contract ForwarderFactoryV4 is CloneFactory, Ownable {
     bytes32 salt,
     bool shouldAutoFlushERC721,
     bool shouldAutoFlushERC1155
-  ) external {
+  ) external onlyOwner {
     /// include the parent and fee address in the salt so any contract deployed directly relies on the parent address and the fee address
     bytes32 finalSalt = keccak256(abi.encodePacked(parent, feeAddress, salt));
 

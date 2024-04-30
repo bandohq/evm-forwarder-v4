@@ -188,6 +188,14 @@ contract ForwarderV4 is IERC721Receiver, ERC1155Holder, IForwarderV4 {
   }
 
   /**
+   * @notice Method to set the parent address.
+   * @param _parentAddress The address to which the funds should be forwarded
+   */
+  function setParent(address _parentAddress) external onlyAllowedAddress {
+    parentAddress = _parentAddress;
+  }
+
+  /**
    * @inheritdoc ERC1155Holder
    */
   function onERC1155Received(

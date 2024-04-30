@@ -25,17 +25,33 @@ contract DeployForwarderFactory is DeployScriptBase {
             root,
             "/deployment_results/",
             network,
-            ".json"
+            ".",
+            fileSuffix,
+            "json"
         );
+
+        // get path for specific contract
+        string memory contractConfig = string.concat(
+            root,
+            "/config/",
+            fileSuffix,
+            "forwarderFactoryV4.json"
+        );
+
+        // read contract config into json variable
+        string memory contractConfigJson = vm.readFile(contractConfig);
+
+        // extract deployer address
+        address deployer = contractConfigJson.readAddress(".deployer");
 
         // read file into json variable
         string memory configJson = vm.readFile(networkConfigPath);
 
         // extract implementation address
         address implementationAddress = configJson.readAddress(
-            ".forwarderAddress"
+            ".ForwarderV4"
         );
 
-        return abi.encode(implementationAddress);
+        return abi.encode(implementationAddress, deployer);
     }
 }

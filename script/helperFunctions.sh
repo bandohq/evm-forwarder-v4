@@ -812,7 +812,7 @@ function saveContract() {
   local FILE_SUFFIX=$4
 
   # load JSON FILE that contains deployment addresses
-  ADDRESSES_FILE="./deployments/${NETWORK}.${FILE_SUFFIX}json"
+  ADDRESSES_FILE="./deployment_results/${NETWORK}.${FILE_SUFFIX}json"
 
   # logging for debug purposes
   echo ""
@@ -2615,7 +2615,7 @@ function getRPCUrl() {
 }
 function playNotificationSound() {
   if [[ "$NOTIFICATION_SOUNDS" == *"true"* ]]; then
-    afplay ./script/deploy/resources/notification.mp3
+    afplay ./script/resources/notification.mp3
   fi
 }
 function deployAndAddContractToDiamond() {
