@@ -86,13 +86,4 @@ contract ForwarderFactoryV4 is CloneFactory, Ownable {
       shouldAutoFlushERC1155
     );
   }
-
-  /**
-   * @notice Sets the deployer address
-   * @param _deployer Address of the deployer
-   */
-  function setDeployer(address _deployer) external onlyOwner {
-      _transferOwnership(_deployer);
-      deployer = _deployer;
-  }
 }
