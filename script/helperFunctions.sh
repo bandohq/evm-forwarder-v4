@@ -2615,7 +2615,7 @@ function getRPCUrl() {
 }
 function playNotificationSound() {
   if [[ "$NOTIFICATION_SOUNDS" == *"true"* ]]; then
-    afplay ./script/deploy/resources/notification.mp3
+    afplay ./script/resources/notification.mp3
   fi
 }
 function deployAndAddContractToDiamond() {

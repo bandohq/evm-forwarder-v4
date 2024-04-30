@@ -61,4 +61,10 @@ interface IForwarderV4 is IERC165 {
    */
   function batchFlushERC20Tokens(address[] calldata tokenContractAddresses)
     external;
+
+  /**
+   * Set the parent address
+   * @param _parentAddress the address to which the funds should be forwarded
+   */
+  function setParent(address _parentAddress) external;
 }

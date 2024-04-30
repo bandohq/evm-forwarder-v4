@@ -4,12 +4,12 @@
       "production": {
         "@custom:version": [
           {
-            "ADDRESS": "0x471eE4af9692273b1023f9C86820176b9e682D45",
-            "OPTIMIZER_RUNS": "\u001b[31m[error] : optimizer_runs string not found in foundry.toml.\u001b[0m",
-            "TIMESTAMP": "2024-04-29 14:52:27",
+            "ADDRESS": "0x0A245bAaa3C09381B856FdF87029040BD72d15F4",
+            "OPTIMIZER_RUNS": "1000000",
+            "TIMESTAMP": "2024-04-30 14:45:20",
             "CONSTRUCTOR_ARGS": "0x",
-            "SALT": "31415678",
-            "VERIFIED": "false"
+            "SALT": "27182818284590452353602874713527",
+            "VERIFIED": "true"
           }
         ]
       }
@@ -18,12 +18,12 @@
       "production": {
         "@custom:version": [
           {
-            "ADDRESS": "0x471eE4af9692273b1023f9C86820176b9e682D45",
-            "OPTIMIZER_RUNS": "\u001b[31m[error] : optimizer_runs string not found in foundry.toml.\u001b[0m",
-            "TIMESTAMP": "2024-04-29 20:56:40",
+            "ADDRESS": "0x0A245bAaa3C09381B856FdF87029040BD72d15F4",
+            "OPTIMIZER_RUNS": "1000000",
+            "TIMESTAMP": "2024-04-30 14:50:51",
             "CONSTRUCTOR_ARGS": "0x",
-            "SALT": "31415678",
-            "VERIFIED": "false"
+            "SALT": "27182818284590452353602874713527",
+            "VERIFIED": "true"
           }
         ]
       }
@@ -34,12 +34,26 @@
       "production": {
         "@custom:version": [
           {
-            "ADDRESS": "0xFAE289cE363f2bc4C7aF45c366e21a54fA811677",
+            "ADDRESS": "0xA6A1d8808B42CDEbDDfA7A3fae8709d0695cE7Fc",
             "OPTIMIZER_RUNS": "1000000",
-            "TIMESTAMP": "2024-04-30 01:50:06",
-            "CONSTRUCTOR_ARGS": "0x000000000000000000000000471ee4af9692273b1023f9c86820176b9e682d450000000000000000000000004c244916a0f0b4a54aa8377655b156d48f083aa5",
-            "SALT": "31415678",
-            "VERIFIED": "true"
+            "TIMESTAMP": "2024-04-30 16:13:09",
+            "CONSTRUCTOR_ARGS": "0x0000000000000000000000000a245baaa3c09381b856fdf87029040bd72d15f40000000000000000000000004c244916a0f0b4a54aa8377655b156d48f083aa5",
+            "SALT": "27182818284590452353602874713527",
+            "VERIFIED": "false"
+          }
+        ]
+      }
+    },
+    "arbitrum": {
+      "production": {
+        "@custom:version": [
+          {
+            "ADDRESS": "0xA6A1d8808B42CDEbDDfA7A3fae8709d0695cE7Fc",
+            "OPTIMIZER_RUNS": "1000000",
+            "TIMESTAMP": "2024-04-30 16:13:39",
+            "CONSTRUCTOR_ARGS": "0x0000000000000000000000000a245baaa3c09381b856fdf87029040bd72d15f40000000000000000000000004c244916a0f0b4a54aa8377655b156d48f083aa5",
+            "SALT": "27182818284590452353602874713527",
+            "VERIFIED": "false"
           }
         ]
       }
